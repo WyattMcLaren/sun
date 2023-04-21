@@ -2,7 +2,7 @@ import turtle
 
 def slnko(n, strana, luc):
     t = turtle.Turtle()
-    t.speed(0)
+    t.speed(1) #Možeme zmeniť rýchlost kresby
     #Výpočet úhlu otáčok kolmých na jednotlivé strany
     u = 90-(360/n)
     #Vykreslý stred
@@ -11,23 +11,21 @@ def slnko(n, strana, luc):
         t.right(360/n)
     t.hideturtle()
     #Vykreslý lúče
-    obdlznik(strana,luc,u)
+    obdlznik(strana,luc,u,n)
 
-def obdlznik (a,b,c):
+def obdlznik (a,b,c,d):
   
   t = turtle.Turtle()
-  t.speed(1)
-
-  t.sety(t.ycor()+b)
-  t.forward(a)
-  t.sety(t.ycor()-b)
-  t.left(c)
-  t.forward(b)
-  t.right(90)
-  t.forward(a)
-  t.right(90)
-  t.forward(b)
-  t.left(c)
-  t.forward(a)
-
-slnko(10,20,50)
+  t.speed(1) #Možeme zmeniť rýchlost kresby
+  
+  for i in range(d):
+    t.left(90)
+    t.forward(b)
+    t.right(90)
+    t.forward(a)
+    t.right(90)
+    t.forward(b)
+    t.left(c)
+    
+    
+slnko(6,20,50) #Volám funkciu s parametrami: počet strán | dľžka strany | dľžka lúčov
